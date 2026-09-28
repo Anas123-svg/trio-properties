@@ -34,9 +34,23 @@ export function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
 
   const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
+    const target = document.getElementById(id);
+
+    if (!target) {
+      return;
+    }
+
+    const targetTop =
+      target.getBoundingClientRect().top + window.scrollY - 70;
+    const behavior = window.matchMedia(
+      '(prefers-reduced-motion: reduce)',
+    ).matches
+      ? 'auto'
+      : 'smooth';
+
+    window.scrollTo({
+      top: Math.max(targetTop, 0),
+      behavior,
     });
   };
 
@@ -70,15 +84,12 @@ export function Hero() {
     >
       {/* Background images */}
       <div className="absolute inset-0">
-        <AnimatePresence mode="sync">
+        <AnimatePresence initial={false} mode="sync">
           <motion.img
             key={currentSlide.image}
             src={currentSlide.image}
             alt={currentSlide.label}
-            initial={{
-              opacity: 0,
-              scale: 1.08,
-            }}
+            initial={false}
             animate={{
               opacity: 1,
               scale: 1.01,
@@ -209,7 +220,7 @@ export function Hero() {
       >
         {/* Left side */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{
             duration: 0.75,
@@ -437,11 +448,7 @@ export function Hero() {
         >
           {/* Card stack */}
           <motion.div
-            initial={{
-              opacity: 0,
-              x: 30,
-              y: 15,
-            }}
+            initial={false}
             animate={{
               opacity: 1,
               x: 0,
@@ -616,10 +623,7 @@ export function Hero() {
 
             {/* Experience Across card */}
             <motion.div
-              initial={{
-                opacity: 0,
-                y: 14,
-              }}
+              initial={false}
               animate={{
                 opacity: 1,
                 y: 0,

@@ -51,9 +51,17 @@ export function Navbar() {
     const target = document.getElementById(id);
 
     if (target) {
-      target.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
+      const targetTop =
+        target.getBoundingClientRect().top + window.scrollY - 70;
+      const behavior = window.matchMedia(
+        '(prefers-reduced-motion: reduce)',
+      ).matches
+        ? 'auto'
+        : 'smooth';
+
+      window.scrollTo({
+        top: Math.max(targetTop, 0),
+        behavior,
       });
     }
 
@@ -78,10 +86,7 @@ export function Navbar() {
 
   return (
     <motion.nav
-      initial={{
-        opacity: 0,
-        y: -8,
-      }}
+      initial={false}
       animate={{
         opacity: 1,
         y: 0,

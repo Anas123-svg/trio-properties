@@ -46,7 +46,7 @@ export function Process() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#073F58]/35 via-transparent to-transparent" />
         </div>
 
-        <div className="flex items-center bg-[#F8F7F3] px-7 py-9 sm:px-10 sm:py-10 lg:px-12">
+        <div className="flex items-center bg-[#FFFFFF] px-7 py-9 sm:px-10 sm:py-10 lg:px-12">
           <div className="max-w-[620px]">
             <div className="mb-3 flex items-center gap-3">
               <span className="h-px w-7 bg-[#D2C76F]" />
