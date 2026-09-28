@@ -1,0 +1,46 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+html { scroll-behavior: smooth; }
+
+:root {
+  --trio-display: 'Libre Bodoni', Didot, 'Bodoni MT', Georgia, serif;
+  --trio-sans: 'DM Sans', Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--trio-sans);
+  color: #073F58;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 {
+  font-family: var(--trio-display);
+  font-optical-sizing: auto;
+}
+
+h1, h2 {
+  font-weight: 500 !important;
+  letter-spacing: -0.032em !important;
+}
+
+h3 {
+  font-weight: 600 !important;
+  letter-spacing: -0.018em !important;
+}
+
+button, a, input, textarea, select {
+  font-family: var(--trio-sans);
+}
+button, a { -webkit-tap-highlight-color: transparent; }
+
+/* Keep the first screen composition crisp on common laptop / desktop heights. */
+@media (min-width: 1024px) and (max-height: 760px) {
+  #top h1 { font-size: clamp(3.35rem, 5vw, 4.65rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

@@ -1,0 +1,146 @@
+export function Services() {
+  const services = [
+    {
+      name: 'Construction Management',
+      description: 'Full project oversight from groundworks to handover. We coordinate trades, manage timelines, and deliver to budget with transparent reporting at every stage.',
+    },
+    {
+      name: 'Development Management',
+      description: 'Strategic project planning for developers and investors. From feasibility studies to planning consent, we maximise value and minimise risk.',
+    },
+    {
+      name: 'Refurbishment & Fit-Out',
+      description: 'Premium interior transformation for residential and commercial properties. Bespoke design, expert craftsmanship, seamless execution.',
+    },
+    {
+      name: 'Extensions & Conversions',
+      description: 'Expand your living space with architectural design, structural engineering, and full build management. Loft conversions, side returns, and basement excavations.',
+    },
+    {
+      name: 'Contract Reinstatement',
+      description: 'End-of-lease property restoration to landlord specification. Fast turnaround, dilapidation surveys, and comprehensive project management.',
+    },
+    {
+      name: 'Aftercare & Maintenance',
+      description: 'Ongoing reactive and planned maintenance services. Trusted support for property managers, investors, and homeowners across London.',
+    },
+  ];
+
+  return (
+    <section id="services" className="bg-[#0D0D0D] pt-10 lg:pt-12 pb-8 lg:pb-10">
+      <div className="max-w-[1400px] mx-auto px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
+          <div className="lg:col-span-4">
+            <div
+              className="text-[10px] uppercase tracking-[0.15em] mb-6"
+              style={{
+                fontFamily: 'DM Sans, sans-serif',
+                color: '#2E9CCA',
+              }}
+            >
+              What We Do
+            </div>
+
+            <h2
+              className="text-[36px] sm:text-[42px] lg:text-[46px] leading-[1.18] mb-5"
+              style={{
+                fontFamily: 'Cormorant Garamond, serif',
+                fontWeight: 300,
+                fontStyle: 'italic',
+                color: '#FFFFFF',
+              }}
+            >
+              Every aspect of your property, handled.
+            </h2>
+
+            <p
+              className="text-[14px] leading-[1.75] max-w-[420px]"
+              style={{
+                fontFamily: 'DM Sans, sans-serif',
+                color: 'rgba(255, 255, 255, 0.5)',
+              }}
+            >
+              End-to-end delivery from planning and coordination to finishing and aftercare, tailored for residential and commercial clients.
+            </p>
+
+            <div
+              className="mt-7 relative overflow-hidden w-full max-w-[460px] lg:max-w-none"
+              style={{
+                borderRadius: '8px',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+              }}
+            >
+              <img
+                src="https://images.unsplash.com/photo-1529655683826-aba9b3e77383?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200"
+                alt="London city skyline"
+                className="w-full h-[260px] sm:h-[320px] lg:h-[520px] object-cover"
+              />
+              <div
+                className="absolute inset-0"
+                style={{
+                  background: 'linear-gradient(180deg, rgba(13, 13, 13, 0.05) 0%, rgba(13, 13, 13, 0.48) 100%)',
+                }}
+              />
+            </div>
+          </div>
+
+          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-5">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="bg-[#141414] p-6 lg:p-7 group cursor-pointer transition-all duration-300 hover:translate-y-[-4px]"
+                style={{
+                  border: '0.5px solid rgba(255, 255, 255, 0.06)',
+                  borderLeft: '2px solid #2E9CCA',
+                  borderRadius: '6px',
+                }}
+              >
+                <div
+                  className="text-[10px] uppercase tracking-[0.14em] mb-3"
+                  style={{
+                    fontFamily: 'DM Sans, sans-serif',
+                    color: 'rgba(46, 156, 202, 0.9)',
+                  }}
+                >
+                  Service {String(index + 1).padStart(2, '0')}
+                </div>
+
+                <h3
+                  className="text-[17px] mb-3"
+                  style={{
+                    fontFamily: 'DM Sans, sans-serif',
+                    fontWeight: 500,
+                    color: '#FFFFFF',
+                  }}
+                >
+                  {service.name}
+                </h3>
+
+                <p
+                  className="text-[13px] leading-[1.7] mb-4"
+                  style={{
+                    fontFamily: 'DM Sans, sans-serif',
+                    color: 'rgba(255, 255, 255, 0.43)',
+                  }}
+                >
+                  {service.description}
+                </p>
+
+                <a
+                  href="#"
+                  className="text-xs inline-block group-hover:translate-x-1 transition-transform"
+                  style={{
+                    fontFamily: 'DM Sans, sans-serif',
+                    color: '#2E9CCA',
+                  }}
+                >
+                  Learn more →
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
